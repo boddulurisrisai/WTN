@@ -1,5 +1,5 @@
 import java.util.*;
-class Project{
+class Project1{
 public static void main(String[] args){
 Scanner sc=new Scanner(System.in);
 String a[][]={{"1001","Ashish","01/04/2009","e","R&D","2000","8000","3000"},
@@ -16,21 +16,37 @@ String b[][]={{"e","Engineer","20000"},
 {"m","Manager","40000"}};
 System.out.println("enter emp id");
 String key=sc.next();
+String desg="";
+int da=0;
 int flag=0;
 for(int i=0;i<7;i++){
 if(a[i][0].equals(key)){
-for(int j=0;j<5;j++){
-if(a[i][3].equals(b[j][0])){
+String c=a[i][3];
+switch(c){
+  case "e":desg="Engineer";
+    da=20000;
+    break;
+  case "c":desg="Consultant";
+    da=32000;
+    break;
+  case "k":desg="Clerk";
+    da=12000;
+    break;
+  case "r":desg="Receptionist";
+    da=15000;
+    break;
+  case "m":desg="Manager";
+    da=40000;
+    break;
+}
+    
 int base=Integer.parseInt(a[i][5]);
 int hra=Integer.parseInt(a[i][6]);
-int da=Integer.parseInt(b[j][2]);
 int it=Integer.parseInt(a[i][7]);
 int sal=base+hra+da-it;
-System.out.println("Emp No"+" "+"Emp Name"+" "+"Department"+" "+"Salary");
-System.out.println(a[i][0]+"  "+a[i][1]+"  "+a[i][4]+"  "+b[j][1]+"  "+sal);
+System.out.println("EmpNo"+" "+"EmpName"+" "+"Department"+" "+"Designation"+"  "+"Salary");
+System.out.println(a[i][0]+"  "+a[i][1]+"  "+a[i][4]+"  "+desg+"  "+sal);
 flag=1;
-}
-}
 }
 }
 if(flag==0){
